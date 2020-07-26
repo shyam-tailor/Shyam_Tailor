@@ -1,0 +1,33 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/add.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">    
+    </head>
+    
+<body>
+    <div class="main-container">
+        <div class="login-card">
+            <main  class="login-content">
+                <span class="login-header">ADD USER</span>
+
+                <form class="login-form" action="" method="post">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                
+                    <input  value="Submit" class="login-btn">
+                </form>
+
+
+                </main>
+
+            <aside class="add-aside">
+                    <div class="add-aside-overlay"></div>
+                    <h1 class="add-welcome-text">HEARTLY WELCOME TO ADD A NEW INSTANCE</h1>
+                    <hr class="add-aside-hr">
+            </aside>
+              </div>
+        </div>
+
+</body>
+</html>

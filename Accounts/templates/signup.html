@@ -1,0 +1,39 @@
+{% load crispy_forms_tags %}
+{%load static%}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
+    </head>
+
+    <body>
+
+<div class="main__container">
+    <div class="signup-card">
+  
+      <main class="signup-content">
+        <span class="signup-header">Signup</span>
+        <!-- signup form -->
+  
+        <form class="signup-form" method="POST"> 
+            {% csrf_token %}
+            {{form}}
+            <input  value="Submit" type="submit" class="signup-btn">
+        </form>
+        <div class="login-link-wrapper">
+          <span class="login-notice">Already Have an account?</span>
+          <a class="login-link" routerLink="/login">login</a>
+        </div>
+  
+      </main>
+  
+      <!-- linking to signup -->
+      <aside class="signup-aside">
+        <div class="signup-aside-overlay"></div>
+        <h1 class="signup-welcome-text">Join Minimus Today!</h1>
+        <hr class="signup-aside-hr">
+      </aside>
+    </div>
+  </div>
+  </body>
+  </html>

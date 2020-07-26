@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+{% block body %}
+  
+<div class="row">
+    <div class="col-md-3">
+      <div class="productul">
+
+        <ul>
+          <a  href="#sunglass"><li class="productselectli">sunglass</li></a>
+          <!-- <a  href="#jeans"><li class="productselectli"></li></a> -->
+          <a  href="#bags"><li class="productselectli">bags</li></a>
+          <a  href="#shoes"><li class="productselectli">shoes</li></a>
+
+      </ul>
+      </div>
+      
+
+    </div>
+    <div class="col-md-9">
+      <span class="Productheading">sunglasses</span>
+      
+      <hr class="productheadinghr"></hr>
+       <div class="row">
+        {%for i in sunglasses|slice:"0:"%}
+                      
+                           
+        <div id="sunglass" class="product  col-md-3 womens product_filter">
+         <a  class="producthref" href="/womenproductview/{{i.id}}">
+          <div class="womenproduct_image accessioriesproductimg">
+           <img  src="/media/{{i.image}}" alt="">
+          </div>
+         
+         
+         <div class="product_info accinfo">
+           <h6 class="womenproduct_name"><a href="single.html">{{i.product_name}}</a></h6>
+           <div class="product_price">{{i.price}} Rupees</div>
+         </div>
+
+       </a>
+
+         <div id="divpr{{i.id}}" class="add-to-cartwomen addcartbutton divpr">
+           <a class="cart"  id="pr{{i.id}}">add to cart</a>
+         </div>  
+       </div>
+       <!-- <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div> -->
+     
+   
+         {% endfor %} 
+
+        </div>
+
+
+         <span class="Productheading">bag's</span>
+         <hr class="productheadinghr"></hr>
+         <div class="row">
+           {%for i in bags|slice:"0:"%}
+                         
+                              
+           <div class="product  col-md-3 womens product_filter" id="bags">
+            <a class="producthref" href="/womenproductview/{{i.id}}">
+             <div class="womenproduct_image">
+              <img src="/media/{{i.image}}" alt="">
+             </div>
+            
+            
+            <div class="product_info">
+              <h6 class="womenproduct_name"><a href="single.html">{{i.product_name}}</a></h6>
+              <div class="product_price">{{i.price}} Rupees</div>
+            </div>
+   
+          </a>
+   
+            <div id="divpr{{i.id}}" class="add-to-cartwomen addcartbutton divpr">
+              <a class="cart"  id="pr{{i.id}}">add to cart</a>
+            </div>  
+          </div>
+          <!-- <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div> -->
+       
+      
+            {% endfor %} 
+          </div>
+        
+
+            
+            <span class="Productheading">shoes's</span>
+            <hr class="productheadinghr"></hr>
+            <div class="row">
+              {%for i in shoes|slice:"0:"%}
+                            
+                                 
+              <div class="product  col-md-3 womens product_filter" id="tshirts">
+               <a class="producthref" href="/womenproductview/{{i.id}}">
+                <div class="womenproduct_image">
+                 <img src="/media/{{i.image}}" alt="">
+                </div>
+               
+               
+               <div class="product_info">
+                 <h6 class="womenproduct_name"><a href="single.html">{{i.product_name}}</a></h6>
+                 <div class="product_price">{{i.price}} Rupees</div>
+               </div>
+      
+             </a>
+      
+               <div id="divpr{{i.id}}" class="add-to-cartwomen addcartbutton divpr">
+                 <a class="cart"  id="pr{{i.id}}">add to cart</a>
+               </div>  
+             </div>
+             <!-- <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div> -->
+           
+         
+               {% endfor %} 
+
+              </div>
+
+
+               
+   
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+

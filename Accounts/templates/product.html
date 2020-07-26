@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+{% block body %}
+
+<div class="row">
+    
+    
+        {% for i in details %}
+        <div class="col-md-6 productimagediv">
+
+            <img src="/media/{{i.detailimage}}" alt="">
+            <input class="productviewaddcartbutton" type="submit" value="SHOP NOW">
+            <input class="productviewaddcartbutton2" type="submit" value="add mywishlist"> 
+        </div>
+
+        <div class="col-md-6 productdetailsdiv">
+            <span  class="productdetailsubcategory">{{i.subcategory}}</span>
+            <p class="productdetailname">{{i.product_name}}</p>
+            <span  class="productdetailcategory">{{i.category}}</span></br>
+            <div class="pricediv">
+                <span class="Pricetitle">Price:</span> <span class="productdetailprice">{{i.price}} </span> <span class="Rupeestitle">Rupees</span></br>
+            </div>
+
+            <hr class="productviewhr"></hr>
+            <div class="row">
+                <h5 class="Detailtitle col-md-6">Details:</h5>
+                <a class="showplusicon">
+                    <i id="plus" class="fa fa-plus  col-md-6" aria-hidden="true"> </i>
+               </a>
+                <a class="showminusicon">
+                        <i  id="minus"  class="fa fa-minus" aria-hidden="true"></i>
+                </a>
+                
+            </div>
+            
+            <ul  class="proddetailul"  id="description">
+            {% for j in descriptionlist%}
+             
+            <i class="fa fa-dot-circle-o bookmarkicon"  aria-hidden="true"></i><li class="proddetailli">{{j}}</li>
+              
+            {% endfor %}
+
+           </ul>
+           
+            <!-- <p class="productdetaildescript">{{j.desc}}</p> -->
+            
+             
+        
+        </div>
+         
+        {% endfor %}
+
+       
+        
+        <!-- <img src="/media/{{i.image}}" alt="">   -->
+    </div>
+
+     
+
+</div>
+
+
+{% endblock%}
+
+
+{% block js %}
+<script>
+    console.log("Hekllo")
+
+    $('.showplusicon').click(function(){
+     
+        console.log("Hello plus")
+
+        if(document.getElementById('description').style.visibility = "hidden")
+            {
+                
+                document.getElementById('description').style.visibility = "visible"
+                document.getElementById('minus').style.visibility = "visible"
+                document.getElementById('plus').style.visibility = "hidden"
+                
+            }
+
+        // if(document.getElementById('description').style.visibility = "visible")
+        // {
+        //     document.getElementById('description').style.visibility = "hidden"
+        // }
+        
+    })
+
+
+    $('.showminusicon').click(function(){
+     
+     console.log("Hello minus")
+
+     if(document.getElementById('description').style.visibility = "visible")
+         {
+             
+             document.getElementById('description').style.visibility = "hidden"
+             document.getElementById('minus').style.visibility = "hidden"
+             document.getElementById('plus').style.visibility = "visible"
+             
+         }
+
+     // if(document.getElementById('description').style.visibility = "visible")
+     // {
+     //     document.getElementById('description').style.visibility = "hidden"
+     // }
+     
+ })
+
+ 
+
+</script>
+
+{% endblock %}

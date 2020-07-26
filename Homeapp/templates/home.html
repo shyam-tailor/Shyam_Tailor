@@ -1,0 +1,651 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+
+
+{% block body %}
+
+
+ 
+  
+
+  
+    <div id="demo" class="carousel slide my-3" data-ride="carousel">
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1" ></li>
+          <li data-target="#demo" data-slide-to="2" ></li>
+          <li data-target="#demo" data-slide-to="3" ></li>
+        </ul>
+    
+        <div class="carousel-inner no-padding">
+                   <!-- <div class="carousel-item active">
+                        <div class="main_slider" style="background-image: url('{% static "img/slider_1.jpg" %}');">
+                                <div class="h6a">
+                                    <h6>Spring / Summer Collection 2017</h6>
+                                </div>
+                                <div class="h1a">
+                                    <h1>Get up to 30% Off New Arrivals</h1>
+                                </div>
+                        </div>
+
+
+                  </div>  -->
+
+                  <div class="carousel-item active ">
+                    <div class="main_slider" style="background-image: url('{% static "img/main-slider5.jpg" %}');">
+                      <div class="h2b">
+                        <h2>SHOP WITH US</h2>
+                      </div>
+                      <div class="pb">
+                         <p>
+                          Lorem ipsum dolor sit amet consectetur adipisicing  Lorem ipsum dolor sit amet consectetur adipisicing 
+                          
+                         </p> 
+                      </div>
+
+                      <div>
+                        <input class="shopnowbutton1" type="submit" value="SHOP NOW">
+                      </div>
+                      <div>
+                        <input class="membershipbutton" type="submit" value="CLUB MEMBERSHIP">
+                      </div>
+                            
+                    </div>
+
+      
+                  </div>
+
+                  <!-- <div class="carousel-item">
+                    <div class="main_slider" style="background-image: url('{% static "img/slider6.jpg" %}');">
+                            <div class="h6a">
+                            </div>
+                            <div class="h1a">
+                                
+                            </div>
+                    </div>
+
+
+                  </div>
+                  <div class="carousel-item">
+                    <div class="main_slider" style="background-image: url('{% static "img/main-slider4.jpg" %}');">
+                            <div class="h6a">
+                              
+                            </div>
+                            <div class="h1a">
+                                
+                            </div>
+                    </div>
+
+
+                  </div>
+
+                  <div class="carousel-item">
+                    <div class="main_slider" style="background-image: url('{% static "img/main-slider2.jpg" %}');">
+                      <div class="h6b">
+                        <h1>
+                          Shop With Us
+                        </h1>
+                      </div>
+                      <div class="h1b">
+                        <h6 class="headingb">
+                          Lorem ipsum dolor sit amet consectetur adipisicing 
+                        </h6>
+                      </div>                    </div>
+
+
+                  </div>  -->
+
+
+
+        </div>
+    </div>
+
+
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~Category sECTION~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<div class="banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="banner_item align-items-center" style="background-image: url('{% static "img/banner_1.jpg" %}');">
+          <div class="banner_category">
+            <a href="/womens">women's</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="banner_item align-items-center" style="background-image: url('{% static "img/banner_2.jpg" %}');">
+          <div class="banner_category">
+            <a href="/accessories">accessories's</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="banner_item align-items-center" style="background-image: url('{% static "img/banner_3.jpg" %}');">
+          <div class="banner_category">
+            <a href="/mens">men's</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@ New Arrival Section Start @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<div class="newarrivals portfolio">
+      <div class="container">
+            
+            <div class="row">
+                <div class="col text-center">
+                    <div class="section_title new_arrivals_title">
+                        <h2>New Arrivals</h2>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row align-items-center">
+              <div class="col text-center">
+                <div id="filters" class="button-group">  <button class="button is-checked" data-filter="*">show all</button>
+                  <button class="button" data-filter=".mens" onclick="check()">mens</button>
+                 
+                  <button class="button" data-filter=".womens">womens</button>
+                  <button class="button" data-filter=".accessories">accessories</button>
+
+                </div>
+                              </div>
+            </div>
+                  <div class="row">
+				        <div class="col">
+					            <div class="grid" data-isotope='{ "itemSelector": ".product, "layoutMode": "fitRows" }'>
+                    
+                      
+                        
+
+                            {%for i in womens|slice:"0:"%}
+                      
+                           
+                             <div class="product  col-md-3 womens product_filter">
+                              <a class="producthref" href="/productview/{{i.id}}">
+                               <div class="product_image">
+                                <img src="/media/{{i.image}}" alt="">
+                               </div>
+                              
+                              
+                              <div class="product_info">
+                                <h6 class="product_name"><a href="single.html">{{i.product_name}}</a></h6>
+                                <div class="product_price">{{i.price}} Rupees</div>
+                              </div>
+
+                            </a>
+
+                              <div id="divpr{{i.id}}" class="add-to-cartwomen addcartbutton divpr">
+                                <a class="cart"  id="pr{{i.id}}">add to cart</a>
+                              </div>  
+                            </div>
+                            <!-- <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div> -->
+                          
+                        
+                              {% endfor %} 
+                              
+                              {%for i in mens|slice:"0:"%}
+                      
+                              <div class="product col-md-3 mens product_filter">
+                                <a class="producthref" 
+                                >
+                                <div class="product_image">
+                                  <img src="/media/{{i.image}}" alt="">
+                                </div>
+                                <div class="favorite"></div>
+                                <!-- <div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div> -->
+                                <div class="product_info">
+                                  <h6 class="product_name"><a href="single.html">{{i.product_name}}</a></h6>
+                                  <div class="product_price">{{i.price}} Rupees</div>
+                                </div>
+                              </a>
+                              
+                                <div id="divpr{{i.id}}" class="add-to-cartwomen addcartbutton divpr">
+                                  <a class="cart"  id="pr{{i.id}}">add to cart</a>
+                               </div> 
+                              </div>
+                              <!--  -->
+                              <!-- <div class="add-to-cart"><a href="#">add to cart</a></div> -->
+                              
+                            
+                          
+                                {% endfor %}
+                           {%for i in accessories|slice:"0:"%}
+                           
+                                <div class="product  col-md-3 accessories product_filter">
+                                  <a class="producthref" href="/productview/{{i.id}}">
+                                        <div class="product_image accproduct_image">
+                                              <img class="accimage" src="/media/{{i.image}}" alt="">
+                                        </div>
+                                        <div class="favorite"></div>
+                                        <!-- <div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div> -->
+                                        <div class="product_info accessiriesproduct_info">
+                                              <p class="product_name">{{i.product_name}}</p>
+                                              <div class="product_price">{{i.price}} Rupees</div>
+                                        </div>
+                                      </a>
+                                        <div id="divpr{{i.id}}" class="add-to-cartaccessories addcartbutton divpr">
+                                          <a class="cart" id="pr{{i.id}}" >add to cart</a>
+                                        </div>
+                                </div>
+                              </a>
+                           {% endfor %}
+
+
+
+ 
+                        
+                      
+					      </div>
+				    </div>
+			  </div>
+		</div>
+</div>
+
+
+
+
+
+
+<!-- **************************************** Deal Of The Week **************************************** -->
+
+<div class="deal-of-the-week">
+  <div class="dealoftheweekback"></div>
+        <!-- <div class="container"> -->
+              <div class="row">
+                    <div class="">
+
+                          
+                          <div class="deal-of-weekimage">
+
+                            <img src="{% static "img/bestdealofweekimage2.png" %}" alt="">
+                            <div class="deal-of-the-weekcontentdiv">
+                            <span  class="deal-of-the-weekcontent">Find your best choice here </span>
+                            </div>
+                          </div>
+
+                          
+                    </div>
+
+                    <!-- <div class="">
+                      <div class="deal-of-week-right-content">
+                            <div class="deal-of-week-title">
+                              <h2> Deal Of The Week</h2>
+                            
+                            </div>
+                              <ul class="timer">
+                                <li class="">
+                                  <div id="day" class="timer_num">03</div>
+                                  <div class="timer_unit">Day</div>
+                                </li>
+                                <li class="">
+                                  <div id="hour" class="timer_num">15</div>
+                                  <div class="timer_unit">Hours</div>
+                                </li>
+                                <li class="">
+                                  <div id="minute" class="timer_num">45</div>
+                                  <div class="timer_unit">Mins</div>
+                                </li>
+                                <li class="">
+                                  <div id="second" class="timer_num">23</div>
+                                  <div class="timer_unit">Sec</div>
+                                </li>
+                              </ul>
+
+                              <div>
+                                <input class="deal_ofthe_week_button" type="submit" value="SHOP NOW">
+                              </div>
+
+                             
+
+                            </div>
+                      </div> -->
+                </div>
+              <!-- </div> -->
+        </div>
+</div>
+
+<!-- ***************************** Best Seller ***************************** -->
+<div class="bestsellersection">
+<div class="row">
+  <div class="col text-center">
+        <div class="newarrival-title">
+             <h2>Best Seller</h2>
+
+            
+
+             
+        </div>
+  </div>
+</div>
+
+<div class="container">
+  <div id="demo" class="carousel slide my-3" data-ride="carousel">
+      <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        
+        {% for i in range %}
+        <li data-target="#demo" data-slide-to="{{i}}" ></li>
+        {% endfor %}
+        
+      </ul>
+  
+      
+
+      <div class="container carousel-inner no-padding">
+  
+        <div class="carousel-item active">
+          
+          {%for i in product|slice:"0:" %}
+          <div class="col-xs-3 col-sm-3 col-md-3  carddiv product-itemseller">
+            <div class="card  productdiv">
+                <div class="product_image bestsailimg">
+                  <img src='/media/{{i.image}}'  class="card-img-top bestsailimg" alt="...">
+                </div>
+              
+              <div class="card-body">
+                <h5 class="card-title">{{i.product_name}}</h5>
+                <h5 class="card-title">{{i.category}}</h5>
+                <!-- <h5 class="card-title">{{i.subcategory}}</h5>
+                <h5 class="card-title">{{i.price}}</h5>
+                <p class="card-text">{{i.desc}}</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              </div>
+            </div>
+          </div>
+          {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last%}
+          </div><div class="carousel-item">
+            {%endif%}
+  
+        {% endfor %} 
+        </div> 
+        
+      </div>
+  
+  </div>
+</div>
+  
+      <!-- left and right controls for the slide -->
+      <!-- <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+      </a> -->
+
+      
+
+<!-- ******************************Benifits************************************* -->
+<div class="benefit">
+  <div class="container">
+    <div class="row benefit_row">
+      <div class="col-lg-3 benefit_col">
+        <div class="benefit_item d-flex flex-row align-items-center">
+          <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
+          <div class="benefit_content">
+            <h6>free shipping</h6>
+            <p>Suffered Alteration in Some Form</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 benefit_col">
+        <div class="benefit_item d-flex flex-row align-items-center">
+          <div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+          <div class="benefit_content">
+            <h6>cach on delivery</h6>
+            <p>The Internet Tend To Repeat</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 benefit_col">
+        <div class="benefit_item d-flex flex-row align-items-center">
+          <div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
+          <div class="benefit_content">
+            <h6>45 days return</h6>
+            <p>Making it Look Like Readable</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 benefit_col">
+        <div class="benefit_item d-flex flex-row align-items-center">
+          <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+          <div class="benefit_content">
+            <h6>opening all week</h6>
+            <p>8AM - 09PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ***************************** Latest Blogs ************************************ -->
+<div class="row">
+  <div class="col text-center">
+        <div class="newarrival-title">
+             <h2>Latest Blogs</h2>
+        </div>
+  </div>
+</div>
+
+<div class="baannerblogs">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="banner_item align-items-center" style="background-image: url('{% static "img/blog_1.jpg" %}');">
+          <div class="">
+            <div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+							<h4 class="blog_title">Here are the trends I see coming this fall</h4>
+							<span class="blog_meta">by admin | dec 01, 2017</span>
+							<a class="blog_more" href="#">Read more</a>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="banner_item align-items-center" style="background-image: url('{% static "img/blog_2.jpg" %}');">
+          <div class="">
+            <div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+							<h4 class="blog_title">Here are the trends I see coming this fall</h4>
+							<span class="blog_meta">by admin | dec 01, 2017</span>
+							<a class="blog_more" href="#">Read more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="banner_item align-items-center" style="background-image: url('{% static "img/blog_3.jpg" %}');">
+          <div class="">
+            <div class="blog_content d-flex flex-column align-items-center justify-content-center text-center">
+							<h4 class="blog_title">Here are the trends I see coming this fall</h4>
+							<span class="blog_meta">by admin | dec 01, 2017</span>
+							<a class="blog_more" href="#">Read more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ******************************************** Contect Section **************************************************** -->
+
+<div class="contectdiv">
+   
+    <div class="contectsectioncontent row">
+     
+    <div class="container"> 
+      <div class="col-md-6">
+        <h4 class="contectsectionheading">Newsletter</h4><br>
+        <span class="contectsectionspan">Subscribe to our newsletter and get 20% off your first purchase</span>
+      </div>
+       
+        <div class="col-md-6">
+           <input class="emailfield" type="email" id="email">
+           <input type="submit" class="subscribebutton" id="subscribebutton" value="subscribe">
+        </div>
+
+      </div>
+
+      </div>
+
+</div>
+
+
+
+<!-- <div class="sidenav sidemenu" id="side">
+  <div class="sidenavinner" style="background-image: url('{% static "img/sidebg3.jpg" %}');">
+  <div class="sidenavlogo">
+    <a href="#">shiva<span>shop</span></a>
+  </div>
+
+  <div class="sideclosemenu">
+    <a onclick="closeNav()"><i class="fa fa-bars" aria-hidden="true"></i>
+  </div>
+  
+  
+  
+
+
+  
+  {% for i in users %}
+
+  <div class="profimagediv">
+     <img class="proimg" src="/media/{{i.profimage}}" alt="Hi!"/> 
+  </div>
+  <div class="sideinfo">
+  <span  class="sideusername">{{i.user}}</span><br>
+  <span  class="sideusernumber">{{i.number}}</span>
+  </div>
+</div>
+ {% endfor %}
+
+ <div class="sideuldiv">
+   <ul class="sideul">
+      <li class="sideli"> my wishlist</li>
+      <li class="sideli">edit Profile</li>
+      <li class="sideli">Feedback</li>
+      <li class="sideli">Settings</li>
+     <a href="/logout"><li class="sideli">Logout</li></a>
+
+   </ul>
+ </div>
+
+ 
+
+ 
+
+</div> -->
+
+
+ <!--
+
+  {% for i in users %}
+  {{i.number}}
+ 
+  {% endfor %}
+   <div class=sideref>
+
+     <a href="/logout">logout</a>
+    </div>
+  </div></a>
+  </div> -->
+
+{% endblock %}
+
+{% block js %} 
+<script>
+  var count=0;
+  
+  if(localStorage.getItem('cart') == null){
+  var cart = {};
+  }
+  else
+  {
+  cart = JSON.parse(localStorage.getItem('cart'));
+  }
+
+  for (let i of Object.keys(cart)) 
+  {
+     
+     
+     count=count+cart[i]
+  }
+
+  document.getElementById('checkout_items').innerHTML= count;
+  
+  
+
+
+  
+
+
+$('.cart').click(function(){
+var count=0;
+
+var idstr = this.id.toString();
+if (cart[idstr] !=undefined){
+cart[idstr] = cart[idstr] + 1;
+}
+else
+{
+cart[idstr] = 1;
+}
+
+localStorage.setItem('cart', JSON.stringify(cart));
+// Updatecart(cart)
+
+for (let i of Object.keys(cart)) 
+  {
+     
+     
+     count=count+cart[i]
+  }
+
+  document.getElementById('checkout_items').innerHTML= count;
+  
+});
+
+
+
+
+function Updatecart(cart)
+{
+  for(var item in cart)
+  { console.log("Hello Update Cart")
+    
+    console.log('div'+item)
+    
+    document.getElementById('div'+ item).innerHTML="<button id='minus" + item + "' class='btn btn-primary minus'>-</button><button id='plus "+ item + "'  class='btn btn-primary plus'>+</button>"
+    
+  }
+}
+
+  
+
+</script>
+    
+{% endblock %}  
+
+  
+
+
+
+
+
+
